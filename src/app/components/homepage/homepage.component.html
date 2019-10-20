@@ -1,0 +1,12 @@
+<section *ngIf="topPlayer">
+    <h3>Top paris !</h3>
+    <app-player-item [player]="topPlayer"></app-player-item>
+</section>
+<section>
+    <h3>Tous les paris</h3>
+    <ul>
+        <li *ngFor="let player of players">
+            <app-player-item [player]="player"></app-player-item>
+        </li>
+    </ul>
+</section>
