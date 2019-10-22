@@ -11,6 +11,8 @@ import { CheckoutService } from './../../services';
 export class PlayerItemComponent implements OnInit {
   @Input() public player: Player;
 
+  selectedBets: string[] = [];
+
   constructor(private checkoutService: CheckoutService) { }
 
   ngOnInit() {
@@ -19,5 +21,4 @@ export class PlayerItemComponent implements OnInit {
   public addToBasket(bet): void {
     this.checkoutService.addToCheckout(bet);
   }
-
 }

@@ -1,4 +1,5 @@
 <section>
+    <button type="button" (click)="back()">Retour</button>
     <h3>Votre sélection</h3>
     <ul>
         <li *ngFor="let bet of getCheckoutList">{{ bet.id }}</li>

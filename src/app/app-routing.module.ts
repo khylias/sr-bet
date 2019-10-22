@@ -12,6 +12,10 @@ const routes: Routes = [
   {
     path: 'panier',
     component: CheckoutComponent
+  },
+  {
+    path: 'espace-client',
+    loadChildren: () => import('./components/account/account.module').then(m => m.AccountModule)
   }
 ];
 

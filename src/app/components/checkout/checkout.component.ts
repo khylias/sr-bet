@@ -18,4 +18,8 @@ export class CheckoutComponent implements OnInit {
     return this.checkoutService.checkoutList;
   }
 
+  public back(): void {
+    history.back();
+  }
+
 }

@@ -9,6 +9,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { PlayerItemComponent } from './components/player-item/player-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
+import { AccountModule } from './components/account/account.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
+    AccountModule
   ],
   providers: [],
   bootstrap: [AppComponent]
