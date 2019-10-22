@@ -1,0 +1,23 @@
+.btn {
+ &--add-checkout {
+     border-radius: 50%;
+     width: 45px;
+     height:45px;
+     line-height: 45px;
+
+     position: fixed;
+     bottom: 25px;
+     left: 50%;
+     transform: translateX(-50%);
+     transition: 0.3s all ease;
+     
+
+     &--show {
+        bottom: 25px;
+     }
+
+     &--hide {
+         bottom: -50px;
+     }
+ }
+}

@@ -1,19 +1,21 @@
-<div>
-    <img src="https://place-hold.it/50x75" alt="">
-    <div>
+<div class="siimple-card">
+    <div class="siimple-card-body">
+        <img src="https://place-hold.it/50x75" alt="">
         <p>{{ player.firstname }} {{ player.lastname }}</p>
-        <p>Pillier</p>
-    </div>
-    <div>
-        <p>Toulouse</p>
-        <button type="button"
-                class="" 
-                (click)="addToBasket({id: 'toulouse', bet: 3.45})">3.45</button>
-    </div>
-    <div>
-        <p>R92</p>
-        <button type="button"
-                class="" 
-                (click)="addToBasket({id: 'R92', bet: 2.11})">2.11</button>
+        <p class="siimple-small">POSTE</p>
+        <div class="siimple-grid">
+            <div class="siimple-grid-row">
+                <div class="siimple-grid-col siimple-grid-col--6 siimple--text-center">
+                    <p>Toulouse</p>
+                    <button type="button" class="siimple-btn siimple-btn--grey"
+                        (click)="addToBasket({id: 'toulouse', bet: 3.45})">3.45</button>
+                </div>
+                <div class="siimple-grid-col siimple-grid-col--6 siimple--text-center">
+                    <p>R92</p>
+                    <button type="button" class="siimple-btn siimple-btn--grey"
+                        (click)="addToBasket({id: 'R92', bet: 2.11})">2.11</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ export class AppComponent {
 
   }
 
-  public get hasCheckoutItem(): boolean {
-    return !!this.checkoutService.checkoutList.length;
+  public getCheckoutButtonClass(): string {
+    return this.checkoutService.checkoutList.length ? 'btn--add-checkout--show' : 'btn--add-checkout--hide';
   }
 }

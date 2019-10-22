@@ -1,6 +1,8 @@
-<header>
-    <div class="tag is-primary">
-        <span>{{ activeUser.balance }}€</span>
+<header class="siimple-navbar siimple-navbar--dark siimple-navbar--fluid">
+    <span class="siimple-tag siimple-tag--yellow siimple-tag--rounded siimple-navbar-item">
+        {{ activeUser.balance }}€
+    </span>
+    <div class="siimple--float-right">
+        <a class="siimple-navbar-item" [routerLink]="['/espace-client']"><i class="large material-icons">account_circle</i></a>
     </div>
-    <a [routerLink]="['/espace-client']">User</a>
 </header>

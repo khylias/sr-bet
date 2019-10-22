@@ -1,7 +1,5 @@
 <app-header></app-header>
-<main>
+<main class="siimple-content">
   <router-outlet></router-outlet>
 </main>
-<footer>
-    <a [routerLink]="['/panier']" *ngIf="hasCheckoutItem">Panier</a>
-</footer>
+<a class="siimple-btn siimple-btn--yellow btn--add-checkout material-icons large {{ getCheckoutButtonClass() }}" [routerLink]="['/panier']">shopping_cart</a>
