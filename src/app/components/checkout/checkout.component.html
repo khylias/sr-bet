@@ -1,7 +1,22 @@
-<section>
-    <button type="button" (click)="back()">Retour</button>
-    <h3>Votre sélection</h3>
-    <ul>
-        <li *ngFor="let bet of getCheckoutList">{{ bet.id }}</li>
-    </ul>
+<section class="siimple-content">
+    <button type="button" (click)="back()" class="siimple-btn siimple-btn--grey">Retour</button>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="siimple-form">
+        <h3 class="siimple-form-title">Votre sélection</h3>
+        <div *ngFor="let bet of bets.controls" [formGroup]="bet" class="siimple-card siimple-grid">
+            <div class="siimple-card-body siimple-grid-row">
+                <div class="siimple-grid-col--4 siimple-grid-col">
+                    <label for="bet" class="siimple-label">Côte</label>
+                    <input type="text" formControlName="bet" id="bet" class="siimple-input siimple-input--fluid">
+                </div>
+                <div class="siimple-grid-col--8 siimple-grid-col">
+                    <label for="amount" class="siimple-label">Mise</label>
+                    <input type="text" formControlName="amount" id="amount" placeholder="Saisissez votre mise"
+                        class="siimple-input siimple-input--fluid">
+                </div>
+            </div>
+        </div>
+        <p *ngIf="!bets.controls.length">Vous n'avez choisis aucun jeu.</p>
+        <button type="submit" [ngClass]="{'siimple-btn--disabled': form.invalid}"
+            class="siimple-btn siimple-btn--success" [disabled]="form.invalid">Payer</button>
+    </form>
 </section>
