@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AuthGuard } from './guards';
 
 const routes: Routes = [
   {
@@ -15,7 +16,12 @@ const routes: Routes = [
   },
   {
     path: 'espace-client',
-    loadChildren: () => import('./components/account/account.module').then(m => m.AccountModule)
+    loadChildren: () => import('./components/account/account.module').then(m => m.AccountModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'authentification',
+    loadChildren: () => import('./components/authentification/authentification.module').then(m => m.AuthentificationModule)
   }
 ];
 

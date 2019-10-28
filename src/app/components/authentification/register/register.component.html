@@ -1,0 +1,48 @@
+<form class="siimple-form" [formGroup]="form" (ngSubmit)="register()">
+    <h3 class="siimple-form-title">Inscription</h3>
+    <div class="siimple-field">
+            <label for="username" class="siimple-label">Pseudo</label>
+            <input type="text" id="username" formControlName="username" class="siimple-input siimple-input--fluid">
+            <div *ngIf="submitted && getfieldsErrors('username')" class="siimple--my-1">
+                <div *ngIf="!!getfieldsErrors('username').required" class="siimple-alert siimple-alert--error">Champs requis
+                </div>
+            </div>
+        </div>
+    <div class="siimple-field">
+        <label for="email" class="siimple-label">Email</label>
+        <input type="text" id="email" formControlName="email" class="siimple-input siimple-input--fluid">
+        <div *ngIf="submitted && getfieldsErrors('email')" class="siimple--my-1">
+            <div *ngIf="!!getfieldsErrors('email').required" class="siimple-alert siimple-alert--error">Champs requis
+            </div>
+        </div>
+    </div>
+    <div class="siimple-field">
+        <label for="password" class="siimple-label">Mot de passe</label>
+        <input type="password" id="password" formControlName="password" class="siimple-input siimple-input--fluid"
+            appPasswordInspector>
+        <div *ngIf="submitted && getfieldsErrors('password')" class="siimple--my-1">
+            <div *ngIf="!!getfieldsErrors('password').required" class="siimple-alert siimple-alert--error">Champs requis
+            </div>
+            <div *ngIf="!!getfieldsErrors('password').passwordsDoesntMatch" class="siimple-alert siimple-alert--error">
+                Les mots de passes ne sont pas identiques</div>
+        </div>
+    </div>
+    <div class="siimple-field">
+        <label for="confirmPassword" class="siimple-label">Confirmation de mot de passe</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword"
+            class="siimple-input siimple-input--fluid" appPasswordInspector>
+        <div *ngIf="submitted && getfieldsErrors('confirmPassword')" class="siimple--my-1">
+            <div *ngIf="!!getfieldsErrors('confirmPassword').required" class="siimple-alert siimple-alert--error">Champs requis
+            </div>
+        </div>
+    </div>
+    <div class="siimple-field">
+        <label for="lastName" class="siimple-label">Nom</label>
+        <input type="text" id="lastName" formControlName="lastName" class="siimple-input siimple-input--fluid">
+    </div>
+    <div class="siimple-field">
+        <label for="firstName" class="siimple-label">Prénom</label>
+        <input type="text" id="firstName" formControlName="firstName" class="siimple-input siimple-input--fluid">
+    </div>
+    <button type="submit" class="siimple-btn siimple-btn--success">Se connecter</button>
+</form>

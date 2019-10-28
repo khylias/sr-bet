@@ -1,0 +1,12 @@
+<form class="siimple-form" [formGroup]="form" (ngSubmit)="login()">
+    <h3 class="siimple-form-title">Connexion</h3>
+    <div class="siimple-field">
+        <label for="identifier" class="siimple-label">Email</label>
+        <input type="text" id="identifier" formControlName="identifier" class="siimple-input siimple-input--fluid">
+    </div>
+    <div class="siimple-field">
+        <label for="password" class="siimple-label">Mot de passe</label>
+        <input type="password" id="password" formControlName="password" class="siimple-input siimple-input--fluid">
+    </div>
+    <button type="submit" class="siimple-btn siimple-btn--success">Se connecter</button>
+</form>

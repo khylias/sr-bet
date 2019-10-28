@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -11,6 +11,12 @@ import { PlayerItemComponent } from './components/player-item/player-item.compon
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
 import { AccountModule } from './components/account/account.module';
+import { AuthentificationModule } from './components/authentification/authentification.module';
+
+import { AppInterceptorService } from './services/app-interceptor.service';
+import { UserService, TokenStorageService } from './services';
+import { JwthelperService } from './helpers';
+import { LocalStorageService } from '@rars/ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,7 @@ import { AccountModule } from './components/account/account.module';
     HeaderComponent,
     HomepageComponent,
     PlayerItemComponent,
-    CheckoutComponent
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +32,20 @@ import { AccountModule } from './components/account/account.module';
     HttpClientModule,
     ReactiveFormsModule,
 
-    AccountModule
+    AccountModule,
+    AuthentificationModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+    JwthelperService,
+    LocalStorageService,
+    TokenStorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptorService,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
